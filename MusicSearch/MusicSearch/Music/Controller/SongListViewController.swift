@@ -56,11 +56,17 @@ class SongListViewController: UIViewController, UISearchBarDelegate
         }
     }
     
+    
     //# MARK: - Search Bar Methods
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchTerm = searchBar.text{
             fetchSongs(searchTerm: searchTerm)
         }
+    }
+    
+    //for dynamice search service call could be made here.
+    func textFieldDidChange(textField: UITextField) {
+        //your code
     }
 
     //# MARK: - Fetch from Song service
