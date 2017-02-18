@@ -14,9 +14,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let songService = SongService(apiClient: SongAPIClientRest(), parser: SongParseClientJson())
+        songService.fetchSongs(searchTerm:  "New Coat Of Paint") { serviceResult in
+            switch serviceResult {
+                case let .success(songs):
+                    print(songs)
+                case .error(SongServiceError.noSongsAvailable):
+                    print("No songs available")
+                default:
+                    print("Other error")
+                }
+            }
         return true
     }
 

@@ -20,14 +20,14 @@ enum SongAPIError: Error {
     case networkError(error: Error)
 }
 
-enum ResultType<T, SongAPIError> {
+enum SongAPIResultType<T, SongAPIError> {
     case success(T)
     case error(Error)
 }
 
-typealias FetchResult = ResultType<Array<Any>, SongAPIError>
+typealias SongAPIFetchResult = SongAPIResultType<Array<Any>, SongAPIError>
 
-typealias APIResponse = (_ result: FetchResult) -> Void
+typealias SongAPIResponse = (_ result: SongAPIFetchResult) -> Void
 
 protocol SongAPIClientProtocol {
     /**
@@ -37,5 +37,5 @@ protocol SongAPIClientProtocol {
      - songTitle: Describe the song title
      - onCompletionHandler: Async call back handler describing JSON dictionary
      */
-    func fetchSongsRemotely(artistName: String, songTitle: String, onCompletionHandler: @escaping APIResponse) 
+    func fetchSongsRemotely(searchTerm: String, onCompletionHandler: @escaping SongAPIResponse)
 }

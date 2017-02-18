@@ -9,15 +9,15 @@
 import Foundation
 
 public struct Song{
-    private let artist: String
-    private let songTitle: String
-    private let lyrics:String
-    private let url: String
+    private let trackName: String
+    private let artistName: String
+    private let albumName:String
+    private let imageOfAlbum: String
     
-    public init(artist: String, songTitle: String, lyrics: String, url: String) {
-        self.artist = artist
-        self.songTitle = songTitle
-        self.lyrics = lyrics
-        self.url = url
+    public init(trackName: String, artistName: String, albumName: String, imageOfAlbum: String) {
+        self.trackName = trackName
+        self.artistName = artistName
+        self.albumName = albumName
+        self.imageOfAlbum = imageOfAlbum
     }
 }
