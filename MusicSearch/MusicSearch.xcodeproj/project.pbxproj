@@ -15,6 +15,11 @@
 		6929279B1E57F44600F4E7BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 692927991E57F44600F4E7BA /* LaunchScreen.storyboard */; };
 		692927A61E57F44700F4E7BA /* MusicSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692927A51E57F44700F4E7BA /* MusicSearchTests.swift */; };
 		692927B11E57F44700F4E7BA /* MusicSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692927B01E57F44700F4E7BA /* MusicSearchUITests.swift */; };
+		692927C91E57F96000F4E7BA /* SongAPIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692927C81E57F96000F4E7BA /* SongAPIClientProtocol.swift */; };
+		692927CB1E57F97F00F4E7BA /* SongParseClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692927CA1E57F97F00F4E7BA /* SongParseClientProtocol.swift */; };
+		692927CE1E57FA9900F4E7BA /* ObjectGraphConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692927CD1E57FA9900F4E7BA /* ObjectGraphConfigurator.swift */; };
+		692927D01E58041C00F4E7BA /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692927CF1E58041C00F4E7BA /* Song.swift */; };
+		692927D21E58081500F4E7BA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692927D11E58081500F4E7BA /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		692927AC1E57F44700F4E7BA /* MusicSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		692927B01E57F44700F4E7BA /* MusicSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearchUITests.swift; sourceTree = "<group>"; };
 		692927B21E57F44700F4E7BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		692927C81E57F96000F4E7BA /* SongAPIClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongAPIClientProtocol.swift; sourceTree = "<group>"; };
+		692927CA1E57F97F00F4E7BA /* SongParseClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongParseClientProtocol.swift; sourceTree = "<group>"; };
+		692927CD1E57FA9900F4E7BA /* ObjectGraphConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectGraphConfigurator.swift; sourceTree = "<group>"; };
+		692927CF1E58041C00F4E7BA /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		692927D11E58081500F4E7BA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +109,8 @@
 		6929278C1E57F44600F4E7BA /* MusicSearch */ = {
 			isa = PBXGroup;
 			children = (
+				692927CC1E57FA1500F4E7BA /* DependencyInjector */,
+				692927BE1E57F6D100F4E7BA /* Music */,
 				6929278D1E57F44600F4E7BA /* AppDelegate.swift */,
 				6929278F1E57F44600F4E7BA /* ViewController.swift */,
 				692927911E57F44600F4E7BA /* Main.storyboard */,
@@ -106,6 +118,7 @@
 				692927991E57F44600F4E7BA /* LaunchScreen.storyboard */,
 				6929279C1E57F44600F4E7BA /* Info.plist */,
 				692927941E57F44600F4E7BA /* MusicSearch.xcdatamodeld */,
+				692927D11E58081500F4E7BA /* Constants.swift */,
 			);
 			path = MusicSearch;
 			sourceTree = "<group>";
@@ -126,6 +139,72 @@
 				692927B21E57F44700F4E7BA /* Info.plist */,
 			);
 			path = MusicSearchUITests;
+			sourceTree = "<group>";
+		};
+		692927BE1E57F6D100F4E7BA /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				692927C11E57F70500F4E7BA /* Controller */,
+				692927C01E57F6FF00F4E7BA /* View */,
+				692927BF1E57F6F700F4E7BA /* Model */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		692927BF1E57F6F700F4E7BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				692927C51E57F72A00F4E7BA /* Services Impl */,
+				692927C41E57F72300F4E7BA /* Domain Objects */,
+				692927C21E57F70F00F4E7BA /* Services Interface */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		692927C01E57F6FF00F4E7BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		692927C11E57F70500F4E7BA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		692927C21E57F70F00F4E7BA /* Services Interface */ = {
+			isa = PBXGroup;
+			children = (
+				692927C81E57F96000F4E7BA /* SongAPIClientProtocol.swift */,
+				692927CA1E57F97F00F4E7BA /* SongParseClientProtocol.swift */,
+			);
+			path = "Services Interface";
+			sourceTree = "<group>";
+		};
+		692927C41E57F72300F4E7BA /* Domain Objects */ = {
+			isa = PBXGroup;
+			children = (
+				692927CF1E58041C00F4E7BA /* Song.swift */,
+			);
+			path = "Domain Objects";
+			sourceTree = "<group>";
+		};
+		692927C51E57F72A00F4E7BA /* Services Impl */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Services Impl";
+			sourceTree = "<group>";
+		};
+		692927CC1E57FA1500F4E7BA /* DependencyInjector */ = {
+			isa = PBXGroup;
+			children = (
+				692927CD1E57FA9900F4E7BA /* ObjectGraphConfigurator.swift */,
+			);
+			path = DependencyInjector;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,8 +342,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				692927901E57F44600F4E7BA /* ViewController.swift in Sources */,
+				692927CE1E57FA9900F4E7BA /* ObjectGraphConfigurator.swift in Sources */,
+				692927C91E57F96000F4E7BA /* SongAPIClientProtocol.swift in Sources */,
+				692927D01E58041C00F4E7BA /* Song.swift in Sources */,
 				692927961E57F44600F4E7BA /* MusicSearch.xcdatamodeld in Sources */,
+				692927CB1E57F97F00F4E7BA /* SongParseClientProtocol.swift in Sources */,
 				6929278E1E57F44600F4E7BA /* AppDelegate.swift in Sources */,
+				692927D21E58081500F4E7BA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,10 +501,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MusicSearch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JPMC.MusicSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -429,10 +515,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MusicSearch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JPMC.MusicSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -509,6 +597,7 @@
 				692927B71E57F44700F4E7BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		692927B81E57F44700F4E7BA /* Build configuration list for PBXNativeTarget "MusicSearchTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +606,7 @@
 				692927BA1E57F44700F4E7BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		692927BB1E57F44700F4E7BA /* Build configuration list for PBXNativeTarget "MusicSearchUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +615,7 @@
 				692927BD1E57F44700F4E7BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
