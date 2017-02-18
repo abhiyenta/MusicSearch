@@ -17,4 +17,21 @@ final class ObjectGraphConfigurator {
     static let sharedInstance: ObjectGraphConfigurator = ObjectGraphConfigurator()
 
     
+    func songListViewController() -> SongListViewController {
+        let songAPI = SongAPIClientRest()
+        let songParser = SongParseClientJson()
+        let songService = SongService(apiClient: songAPI, parser: songParser)
+        let songDataSource = SongListTableDataSource(songs:[])
+        
+        let songListViewController = SongListViewController()
+        songListViewController.songService = songService
+        songListViewController.dataSource = songDataSource ;
+        return songListViewController 
+    }
+    
+//    func lyricsDetailsViewController() -> SongListViewController {
+//        //
+//        return songListViewController
+//    }
+    
 }

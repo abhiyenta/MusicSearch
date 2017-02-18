@@ -13,19 +13,19 @@ import Foundation
  Only referred by Song service. No direct access to clients.
  */
 
-enum SongAPIError: Error {
+enum APIError: Error {
     case noData
     case invalidURL(urlString: String)
     case deserialisingFailed
     case networkError(error: Error)
 }
 
-enum SongAPIResultType<T, SongAPIError> {
+enum SongAPIResultType<T, APIError> {
     case success(T)
     case error(Error)
 }
 
-typealias SongAPIFetchResult = SongAPIResultType<Array<Any>, SongAPIError>
+typealias SongAPIFetchResult = SongAPIResultType<Array<Any>, APIError>
 
 typealias SongAPIResponse = (_ result: SongAPIFetchResult) -> Void
 

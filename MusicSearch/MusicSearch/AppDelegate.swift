@@ -16,18 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let songViewController: SongListViewController = ObjectGraphConfigurator.sharedInstance.songListViewController()
         
-        let songService = SongService(apiClient: SongAPIClientRest(), parser: SongParseClientJson())
-        songService.fetchSongs(searchTerm:  "New Coat Of Paint") { serviceResult in
-            switch serviceResult {
-                case let .success(songs):
-                    print(songs)
-                case .error(SongServiceError.noSongsAvailable):
-                    print("No songs available")
-                default:
-                    print("Other error")
-                }
-            }
+        // navigationController
+        let navigationController = UINavigationController(rootViewController: songViewController)
+        navigationController.isNavigationBarHidden = true // or not, your choice.
+        
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
         return true
     }
 

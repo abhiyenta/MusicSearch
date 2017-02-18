@@ -10,6 +10,7 @@ import Foundation
 
 class SongParseClientJson: SongParserProtocol{
     
+    //instead of doing manuel mapping for each field we could leverage some thrid party tools like Mental
     func songsFromJSON(JSON: Array<Any>) -> [Song]{
         var songs:[Song] = []
         if let songsArray = JSON as? [[String:Any]] {
@@ -24,7 +25,7 @@ class SongParseClientJson: SongParserProtocol{
                 guard let albumName = songDict["collectionName"] as? String else {
                     continue
                 }
-                guard let imageOfAlbum = songDict["collectionName"] as? String else {
+                guard let imageOfAlbum = songDict["artworkUrl60"] as? String else {
                     continue
                 }
                 let song = Song(trackName: trackName, artistName: artistName, albumName: albumName, imageOfAlbum: imageOfAlbum)

@@ -50,13 +50,13 @@ class SongService{
             switch apiResult {
             case let .success(songs):
                 return onCompletionHandler(.success((self.parser.songsFromJSON(JSON: songs))))
-            case let .error(SongAPIError.invalidURL(urlString)):
+            case let .error(APIError.invalidURL(urlString)):
                 print(urlString)
                 return onCompletionHandler(.error(SongServiceError.noSongsAvailable))
-            case let .error(SongAPIError.networkError(error)):
+            case let .error(APIError.networkError(error)):
                 print(error.localizedDescription)
                 return onCompletionHandler(.error(SongServiceError.noSongsAvailable))
-            case .error(SongAPIError.deserialisingFailed):
+            case .error(APIError.deserialisingFailed):
                 print("Wrong json data")
                 return onCompletionHandler(.error(SongServiceError.noSongsAvailable))
             default:

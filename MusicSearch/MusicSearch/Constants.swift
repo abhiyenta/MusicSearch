@@ -12,4 +12,14 @@ struct Constants {
     struct SongApi {
         static let BaseUrl = "https://itunes.apple.com/search"
     }
+    
+    struct CellIdentifiers {
+        static let SongCellIdentifier = "SongCell"
+    }
+    
+    struct NotifcationIdentifiers {
+        static let SongCellClicked = Notification.Name("SongCellClicked")
+
+    }
+
 }

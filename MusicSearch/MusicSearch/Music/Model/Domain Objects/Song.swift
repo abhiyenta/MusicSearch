@@ -9,10 +9,10 @@
 import Foundation
 
 public struct Song{
-    private let trackName: String
-    private let artistName: String
-    private let albumName:String
-    private let imageOfAlbum: String
+     let trackName: String
+     let artistName: String
+     let albumName:String
+     let imageOfAlbum: String
     
     public init(trackName: String, artistName: String, albumName: String, imageOfAlbum: String) {
         self.trackName = trackName

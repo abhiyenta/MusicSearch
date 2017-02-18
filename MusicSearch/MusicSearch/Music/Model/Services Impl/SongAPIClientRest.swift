@@ -18,12 +18,12 @@ class SongAPIClientRest: SongAPIClientProtocol {
         
         // make sure the string is URL encoded
         guard let urlwithPercentEscapes = songAPIEndPointString.addingPercentEncoding( withAllowedCharacters: NSCharacterSet.urlQueryAllowed) else{
-            return onCompletionHandler(.error(SongAPIError.invalidURL(urlString: songAPIEndPointString)))
+            return onCompletionHandler(.error(APIError.invalidURL(urlString: songAPIEndPointString)))
         }
         
         // make sure the URL is valid
         guard let url = URL(string: urlwithPercentEscapes) else {
-            return onCompletionHandler(.error(SongAPIError.invalidURL(urlString: songAPIEndPointString)))
+            return onCompletionHandler(.error(APIError.invalidURL(urlString: songAPIEndPointString)))
         }
         
         //construct request
@@ -37,17 +37,17 @@ class SongAPIClientRest: SongAPIClientProtocol {
             do {
                 //make sure data is received
                 guard let data = data else {
-                    return onCompletionHandler(.error(SongAPIError.noData))
+                    return onCompletionHandler(.error(APIError.noData))
                 }
                 
                 //make sure json de-serrialization completed
                 guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary else {
-                    return onCompletionHandler(.error(SongAPIError.deserialisingFailed))
+                    return onCompletionHandler(.error(APIError.deserialisingFailed))
                 }
                 
                 //make sure songs are present
                 guard let songs = json["results"] as? Array<Any> else {
-                    return onCompletionHandler(.error(SongAPIError.noData))
+                    return onCompletionHandler(.error(APIError.noData))
                 }
                 
                 return onCompletionHandler(.success(songs))
